@@ -69,6 +69,7 @@ Bundle 'd11wtq/tomorrow-theme-vim'
 
 " key combos for 'pairs' of things. Mostly previous/next type stuff
 Bundle 'tpope/vim-unimpaired'
+" From dan wells TODO: Comment
 Bundle 'wojtekmach/vim-rename'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'godlygeek/tabular'
@@ -81,16 +82,11 @@ Bundle 'davidoc/taskpaper.vim'
 
 call vundle#end() " required
 
-try
-    color Tomorrow-Night-Bright
-catch
-endtry
-
 
 filetype plugin indent on
 let mapleader = ","
 set encoding=utf8
-set background=light
+set background=dark
 syntax on
 set hidden
 set wildmenu
@@ -152,5 +148,8 @@ nnoremap <F3> :TocdownToggle<CR>
 
 map Y y$
 
-
-:colorscheme slate
+try
+  color Tomorrow-Night-Bright
+catch
+  :colorscheme slate 
+endtry
