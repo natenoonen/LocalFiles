@@ -1,9 +1,21 @@
-:colorscheme slate 
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/vimfiles/bundle/Vundle.vim/
+let path='~/vimfiles/bundle'
+call vundle#begin(path)
+
+" Add vundle plugins here
+
+call vundle#end() " required
+
+filetype plugin indent on
+
 set encoding=utf8
 set background=light
 syntax on
-set nocompatible
-filetype indent plugin on
+
 set hidden
 set wildmenu
 set showcmd
@@ -27,4 +39,5 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 map Y y$
-execute pathogen#infect()
+
+:colorscheme slate
