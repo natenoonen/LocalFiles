@@ -1,12 +1,13 @@
 set nocompatible
 filetype off
 if has('win32') || has('win64')
-     set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+      set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
       " set the runtime path to include Vundle and initialize
       set rtp+=~/vimfiles/bundle/Vundle.vim/
       let path='~/vimfiles/bundle'
       call vundle#begin(path)
 else
+  set backup
   set rtp+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
 endif
@@ -62,7 +63,7 @@ Bundle 'maksimr/vim-jsbeautify'
 Bundle 'scrooloose/syntastic.git'
 
 " My personal favorite 'everywhere' theme. 
-Bundle 'd11wtq/tomorrow-theme-vim'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
 
 " creates a nice way to traverse buffers in a 'tab like' way.
 " Bundle 'fholgado/minibufexpl.vim'
@@ -112,7 +113,7 @@ set softtabstop=2
 set background=dark
 nnoremap ; :
 set showmatch
-
+set swapfile
 set relativenumber
 
 function! NumberToggle()
@@ -123,6 +124,7 @@ function! NumberToggle()
   endif
 endfunc
 
+set backupdir=~/tmp
 nnoremap <C-n> :call NumberToggle()
 
 " NERDTree
@@ -147,6 +149,16 @@ nmap <silent> <A-Right> :wincmd l<CR>
 nnoremap <F3> :TocdownToggle<CR>
 
 map Y y$
+
+" Nate special curl
+
+noremap <leader>c :! curl -K %<CR>
+
+try
+  set swapfile
+  set dir=~/tmp
+catch
+endtry
 
 try
   color Tomorrow-Night-Bright
