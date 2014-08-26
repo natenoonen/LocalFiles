@@ -1,4 +1,3 @@
-:colorscheme slate 
 set encoding=utf8
 set background=light
 syntax on
@@ -27,4 +26,5 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 map Y y$
-execute pathogen#infect()
+" execute pathogen#infect()
+:colorscheme slate 
