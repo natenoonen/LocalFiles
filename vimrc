@@ -6,8 +6,9 @@ if has('win32') || has('win64')
       set rtp+=~/vimfiles/bundle/Vundle.vim/
       let path='~/vimfiles/bundle'
       call vundle#begin(path)
-else
-  set backup
+	  cd C:\Users\nnoonen
+       set gfn=Consolas:h11:cANSI 
+      else
   set rtp+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
 endif
@@ -21,7 +22,8 @@ Bundle 'gmarik/vundle'
 
 " very nice file browser
 Bundle 'scrooloose/nerdtree'
-
+"NERDTree tabs
+Bundle 'jistr/vim-nerdtree-tabs'
 " some markdown support
 Bundle 'plasticboy/vim-markdown'
 
@@ -68,6 +70,9 @@ Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim'}
 " creates a nice way to traverse buffers in a 'tab like' way.
 " Bundle 'fholgado/minibufexpl.vim'
 
+"PlantUML syntax
+Bundle 'plantuml-syntax'
+
 " key combos for 'pairs' of things. Mostly previous/next type stuff
 Bundle 'tpope/vim-unimpaired'
 " From dan wells TODO: Comment
@@ -89,6 +94,7 @@ let mapleader = ","
 set encoding=utf8
 set background=dark
 syntax on
+set autochdir
 set hidden
 set wildmenu
 set showcmd
@@ -113,7 +119,6 @@ set softtabstop=2
 set background=dark
 nnoremap ; :
 set showmatch
-set swapfile
 set relativenumber
 
 function! NumberToggle()
@@ -124,7 +129,6 @@ function! NumberToggle()
   endif
 endfunc
 
-set backupdir=~/tmp
 nnoremap <C-n> :call NumberToggle()
 
 " NERDTree
@@ -155,13 +159,9 @@ map Y y$
 noremap <leader>c :! curl -K %<CR>
 
 try
-  set swapfile
-  set dir=~/tmp
-catch
-endtry
-
-try
   color Tomorrow-Night-Bright
 catch
   :colorscheme slate 
 endtry
+
+nnoremap <CR> :noh<CR><CR>
