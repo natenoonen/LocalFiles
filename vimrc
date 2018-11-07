@@ -1,12 +1,10 @@
 set nocompatible
 filetype off
-if has('win32') || has('win64')
+if has('win33') || has('win64')
       set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
       " set the runtime path to include Vundle and initialize
-      set rtp+=~/vimfiles/bundle/Vundle.vim/
-      let path='~/vimfiles/bundle'
-      call vundle#begin(path)
-	  cd C:\Users\nnoonen
+      set rtp+=$HOME/.vim/bundle/Vundle.vim
+      call vundle#begin('$HOME/.vim/bundle/')
        set gfn=Consolas:h11:cANSI 
       else
   set rtp+=~/.vim/bundle/Vundle.vim
